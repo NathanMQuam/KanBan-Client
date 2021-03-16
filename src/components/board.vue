@@ -1,21 +1,27 @@
 <template>
   <div class="board">
+    <div class=" card shadow">
+      <div class="card-body">
+        <h5 class="card-title">
+          test
+        </h5>
+        <p class="card-text">
+          description
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { reactive } from 'vue'
+// import { reactive } from 'vue'
 export default {
   name: 'Board',
+  props: {
+    board: Object
+  },
   setup() {
-    const state = reactive({
-      name: '',
-      description: '',
-      creatorId: ''
-    })
-    return {
-      state
-    }
+
   },
   components: {}
 }
