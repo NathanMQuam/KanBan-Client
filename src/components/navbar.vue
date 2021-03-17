@@ -21,14 +21,7 @@
       <span class="navbar-toggler-icon" />
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <router-link :to="{ name: 'Home' }" class="nav-link">
-            Home
-          </router-link>
-        </li>
-      </ul>
-      <span class="navbar-text">
+      <span class="navbar-text ml-auto">
         <button
           class="btn btn-outline-primary text-uppercase"
           @click="login"

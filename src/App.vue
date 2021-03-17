@@ -7,7 +7,8 @@
   </main>
   <footer>
     <div class="bg-dark text-light text-center p-4">
-      Made with 💖 by CodeWorks
+      Made with 💖 by Ashley Herrera, Jordan Wilkerson, Nathan Quam<br />
+      <small>and Codeworks</small>
     </div>
   </footer>
 </template>
