@@ -1,5 +1,6 @@
 <template>
   <div class="Task">
+    {{ task.name }}
   </div>
 </template>
 
@@ -7,13 +8,12 @@
 import { reactive } from 'vue'
 export default {
   name: 'Task',
+  props: {
+    task: Object
+  },
   setup() {
     const state = reactive({
-      name: '',
-      description: '',
-      creatorId: '',
-      listId: '',
-      boardId: ''
+
     })
     return {
       state

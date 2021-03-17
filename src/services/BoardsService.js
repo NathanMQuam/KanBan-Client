@@ -1,6 +1,8 @@
 import { AppState } from '../AppState'
 import { Board } from '../models/Board'
+import { List } from '../models/List'
 import { api } from './AxiosService'
+import { Task } from '../models/Task'
 
 class BoardsService {
   async getBoards() {
@@ -12,6 +14,16 @@ class BoardsService {
     AppState.activeBoard = new Board()
     const res = await api.get('api/boards/' + id)
     AppState.activeBoard = new Board(res.data)
+  }
+
+  async getListByBoardId(id) {
+    const res = await api.get(`api/boards/${id}/lists`)
+    AppState.lists = res.data.map(l => new List(l))
+  }
+
+  async getTaskByListId(id) {
+    const res = await api.get(`api/lists/${id}/tasks`)
+    AppState.tasks = res.data.map(t => new Task(t))
   }
 }
 
