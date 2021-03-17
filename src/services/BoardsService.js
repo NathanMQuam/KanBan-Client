@@ -9,8 +9,9 @@ class BoardsService {
   }
 
   async getBoardById(id) {
-    // const res = await api.get('api/boards/' + id)
-    console.log(res)
+    AppState.activeBoard = new Board()
+    const res = await api.get('api/boards/' + id)
+    AppState.activeBoard = new Board(res.data)
   }
 }
 

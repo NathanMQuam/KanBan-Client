@@ -1,14 +1,16 @@
 <template>
   <div class="board">
     <div class=" card shadow">
-      <div class="card-body">
-        <h5 class="card-title">
-          {{ board.name }}
-        </h5>
-        <p class="card-text">
-          {{ board.description }}
-        </p>
-      </div>
+      <router-link :to="{name: 'BoardPage', params: {id: board.id}}">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ board.name }}
+          </h5>
+          <p class="card-text">
+            {{ board.description }}
+          </p>
+        </div>
+      </router-link>
     </div>
   </div>
 </template>
