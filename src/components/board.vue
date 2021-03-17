@@ -3,10 +3,10 @@
     <div class=" card shadow">
       <div class="card-body">
         <h5 class="card-title">
-          test
+          {{ board.name }}
         </h5>
         <p class="card-text">
-          description
+          {{ board.description }}
         </p>
       </div>
     </div>
@@ -16,12 +16,11 @@
 <script>
 // import { reactive } from 'vue'
 export default {
-  name: 'Board',
   props: {
-    board: Object
+    board: { type: Object, required: true }
   },
   setup() {
-
+    return {}
   },
   components: {}
 }

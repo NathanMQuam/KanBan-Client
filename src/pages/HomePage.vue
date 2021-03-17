@@ -5,20 +5,20 @@
       <span class="mx-2 text-white">Vue 3 Starter</span>
     </h1> -->
     <div class="row">
-      <Board class="col-6" />
+      <Board class="col-6 my-3" v-for="board in state.boards" :key="board.id" :board="board" />
     </div>
   </div>
 </template>
 
 <script>
 import { computed, reactive } from 'vue'
-import AppState from '../AppState'
+import { AppState } from '../AppState.js'
 import Board from '../components/board'
+
 export default {
-  name: 'Home',
   setup() {
     const state = reactive({
-      // boards: computed(AppState.boards)
+      boards: computed(() => AppState.boards)
     })
     return {
       state
