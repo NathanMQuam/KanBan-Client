@@ -1,6 +1,8 @@
 <template>
   <div class="Task card">
     {{ task.name }}
+    <br />
+    <Comment v-for="comment in state.comments" :key="comment.id" :comment="comment" />
   </div>
 </template>
 
@@ -16,11 +18,11 @@ export default {
   setup(props) {
     const state = reactive({
       user: computed(() => AppState.user),
-      comment: computed(() => AppState.comments[props.task.id])
+      comments: computed(() => AppState.comments[props.task.id])
 
     })
     onMounted(() => {
-      boardsService.getCommentByListId(props.task.id)
+      boardsService.getCommentByTaskId(props.task.id)
     })
     return {
       state

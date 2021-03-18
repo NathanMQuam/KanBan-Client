@@ -4,7 +4,7 @@
     <br />
     {{ board.description }}
   </div>
-  <List v-for="list in lists" :key="list" :list="list" />
+  <List v-for="list in lists" :key="list.id" :list="list" />
 </template>
 
 <script>
@@ -12,7 +12,6 @@ import { computed, onMounted } from 'vue'
 import { AppState } from '../AppState'
 import { boardsService } from '../services/BoardsService'
 import { useRoute } from 'vue-router'
-import List from '../components/list'
 
 export default {
   setup() {
@@ -28,9 +27,6 @@ export default {
       board,
       lists
     }
-  },
-  components: {
-    List
   }
 }
 </script>

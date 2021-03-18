@@ -1,6 +1,6 @@
 <template>
   <div class="Comment card">
-    {{ comment.body }}
+    {{ comment.name }}
     <br />
   </div>
 </template>

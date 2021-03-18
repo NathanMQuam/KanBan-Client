@@ -13,7 +13,7 @@
 <script>
 import { computed, reactive } from 'vue'
 import { AppState } from '../AppState.js'
-import Board from '../components/board'
+import Board from '../components/Board'
 
 export default {
   setup() {

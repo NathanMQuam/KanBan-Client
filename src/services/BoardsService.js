@@ -1,8 +1,9 @@
 import { AppState } from '../AppState'
+import { api } from './AxiosService'
 import { Board } from '../models/Board'
 import { List } from '../models/List'
-import { api } from './AxiosService'
 import { Task } from '../models/Task'
+import { Comment } from '../models/Comment'
 
 class BoardsService {
   async getBoards() {
