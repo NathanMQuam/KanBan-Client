@@ -95,6 +95,8 @@ class BoardsService {
 
   async deleteTask(id) {
     await api.delete(`api/tasks/${id}`)
+    // const i = AppState.tasks.taskId.findIndex(t => t.id === id)
+    // AppState.tasks.splice(i, 1)
     location.reload()
   }
 
