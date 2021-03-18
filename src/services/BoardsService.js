@@ -82,6 +82,27 @@ class BoardsService {
     AppState.activeComment = new Comment(res.data)
     this.getCommentByTaskId(AppState.activeTask.id)
   }
+
+  async deleteBoard(id) {
+    await api.delete(`api/boards/${id}`)
+    this.getBoards()
+  }
+
+  async deleteList(id) {
+    await api.delete(`api/lists/${id}`)
+    this.getLists()
+  }
+
+  async deleteTask(id) {
+    await api.delete(`api/tasks/${id}`)
+    this.getTasks()
+  }
+
+  async deleteComment(id) {
+    await api.delete(`api/comments/${id}`)
+    // this.getComments()
+    location.reload()
+  }
 }
 
 export const boardsService = new BoardsService()

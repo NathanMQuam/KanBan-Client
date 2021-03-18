@@ -2,24 +2,31 @@
   <div class="Comment card">
     {{ comment.name }}
     <br />
+    <button class="btn btn-danger" @click="deleteComment">
+      Delete Comment
+    </button>
   </div>
 </template>
 
 <script>
 import { AppState } from '../AppState'
 import { reactive, computed } from 'vue'
+import { boardsService } from '../services/BoardsService'
 export default {
   name: 'Comment',
   props: {
     comment: Object
   },
-  setup() {
+  setup(props) {
     const state = reactive({
       user: computed(() => AppState.user)
 
     })
     return {
-      state
+      state,
+      deleteComment() {
+        boardsService.deleteComment(props.comment.id)
+      }
     }
   }
 }

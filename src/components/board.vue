@@ -11,18 +11,26 @@
           </p>
         </div>
       </router-link>
+      <button class="btn btn-danger" @click="deleteBoard">
+        Delete Board
+      </button>
     </div>
   </div>
 </template>
 
 <script>
+import { boardsService } from '../services/BoardsService'
 // import { reactive } from 'vue'
 export default {
   props: {
     board: { type: Object, required: true }
   },
-  setup() {
-    return {}
+  setup(props) {
+    return {
+      deleteBoard() {
+        boardsService.deleteBoard(props.board.id)
+      }
+    }
   },
   components: {}
 }

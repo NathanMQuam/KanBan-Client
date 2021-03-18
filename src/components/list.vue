@@ -4,6 +4,9 @@
     <br />
     <CreateTask :list="list" />
     <Task v-for="task in state.tasks" :key="task.id" :task="task" />
+    <button class="btn btn-danger" @click="deleteList">
+      Delete List
+    </button>
   </div>
 </template>
 
@@ -26,7 +29,10 @@ export default {
       boardsService.getTaskByListId(props.list.id)
     })
     return {
-      state
+      state,
+      deleteList() {
+        boardsService.deleteList(props.list.id)
+      }
 
     }
   },

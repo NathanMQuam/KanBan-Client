@@ -4,6 +4,9 @@
     <br />
     <CreateComment :task="task" />
     <Comment v-for="comment in state.comments" :key="comment.id" :comment="comment" />
+    <button class="btn btn-danger" @click="deleteTask">
+      Delete Task
+    </button>
   </div>
 </template>
 
@@ -27,7 +30,10 @@ export default {
       boardsService.getCommentByTaskId(props.task.id)
     })
     return {
-      state
+      state,
+      deleteTask() {
+        boardsService.deleteTask(props.task.id)
+      }
     }
   },
   components: {
