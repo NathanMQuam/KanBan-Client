@@ -90,12 +90,12 @@ class BoardsService {
 
   async deleteList(id) {
     await api.delete(`api/lists/${id}`)
-    this.getLists()
+    location.reload()
   }
 
   async deleteTask(id) {
     await api.delete(`api/tasks/${id}`)
-    this.getTasks()
+    location.reload()
   }
 
   async deleteComment(id) {
