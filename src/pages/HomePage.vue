@@ -1,12 +1,11 @@
 <template>
-  <div class="home flex-grow-1 align-items-center justify-content-center container">
-    <!-- <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo">
-    <h1 class="my-5 bg-dark text-light p-3 rounded d-flex align-items-center">
-      <span class="mx-2 text-white">Vue 3 Starter</span>
-    </h1> -->
+  <div class="home flex-grow-1 container">
     <div class="row">
       <Board class="col-6 my-3" v-for="board in state.boards" :key="board.id" :board="board" />
     </div>
+  </div>
+  <div>
+    <CreateBoard />
   </div>
 </template>
 
@@ -14,6 +13,7 @@
 import { computed, reactive } from 'vue'
 import { AppState } from '../AppState.js'
 import Board from '../components/Board'
+import createBoard from '../components/createBoard'
 
 export default {
   setup() {
@@ -25,7 +25,8 @@ export default {
     }
   },
   components: {
-    Board
+    Board,
+    createBoard
   }
 }
 </script>

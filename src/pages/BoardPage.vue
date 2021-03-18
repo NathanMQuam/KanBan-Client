@@ -5,6 +5,7 @@
     {{ board.description }}
   </div>
   <List v-for="list in lists" :key="list.id" :list="list" />
+  <CreateList />
 </template>
 
 <script>
