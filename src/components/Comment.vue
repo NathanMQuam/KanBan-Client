@@ -9,6 +9,7 @@
 import { AppState } from '../AppState'
 import { reactive, computed } from 'vue'
 export default {
+  name: 'Comment',
   props: {
     comment: Object
   },

@@ -21,8 +21,7 @@ export default {
     onMounted(() => {
       boardsService.getBoardById(route.params.id)
       boardsService.getListByBoardId(route.params.id)
-    }
-    )
+    })
     return {
       board,
       lists
