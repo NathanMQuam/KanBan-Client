@@ -2,6 +2,7 @@
   <div class="Task card">
     {{ task.name }}
     <br />
+    <CreateComment :task="task" />
     <Comment v-for="comment in state.comments" :key="comment.id" :comment="comment" />
   </div>
 </template>
@@ -10,6 +11,7 @@
 import { AppState } from '../AppState'
 import { reactive, computed, onMounted } from 'vue'
 import { boardsService } from '../services/BoardsService'
+import CreateComment from '../components/createComment'
 
 export default {
   props: {
@@ -28,7 +30,9 @@ export default {
       state
     }
   },
-  components: {}
+  components: {
+    CreateComment
+  }
 }
 </script>
 

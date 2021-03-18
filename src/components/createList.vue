@@ -1,40 +1,40 @@
 <template>
-  <div class="createBoard">
+  <div class="createList">
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createBoardModal">
-      New Board
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createListModal">
+      New List
     </button>
 
     <!-- Modal -->
-    <div class="modal fade" id="createBoardModal" tabindex="-1" aria-labelledby="createBoardModalLabel" aria-hidden="true">
+    <div class="modal fade" id="createListModal" tabindex="-1" aria-labelledby="createListModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="createBoardModalLabel">
-              New Board
+            <h5 class="modal-title" id="createListModalLabel">
+              New List
             </h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form @submit.prevent="createBoard" class="form">
+            <form @submit.prevent="createList" class="form">
               <div class="mb-3">
-                <label for="boardName" class="form-label">Name</label>
+                <label for="listName" class="form-label">Name</label>
                 <input type="text"
-                       name="boardName"
+                       name="listName"
                        class="form-input"
-                       placeholder="My New Board"
+                       placeholder="My New List"
                        required
-                       v-model="newBoard.name"
+                       v-model="newList.name"
                 >
               </div>
               <div class="mb-3">
-                <label for="boardDescription" class="form-label">Description</label>
+                <label for="listDescription" class="form-label">Description</label>
                 <textarea type="text"
-                          name="boardDescription"
+                          name="listDescription"
                           class="form-input"
-                          placeholder="This is my first board!"
+                          placeholder="This is my first list!"
                           rows="3"
-                          v-model="newBoard.description"
+                          v-model="newList.description"
                 >
                 </textarea>
               </div>
@@ -55,15 +55,21 @@
 </template>
 
 <script>
+import { AppState } from '../AppState'
 import { boardsService } from '../services/BoardsService'
+import $ from 'jquery'
+
 export default {
-  name: 'CreateBoard',
+  name: 'CreateList',
   setup() {
-    const newBoard = {}
+    const newList = {}
     return {
-      newBoard,
-      async createBoard() {
-        boardsService.makeBoard(newBoard)
+      newList,
+      async createList() {
+        newList.boardId = AppState.activeBoard.id
+        boardsService.makeList(newList)
+        // FIXME: Not dismissing
+        $('#createListModal').modal('hide')
       }
     }
   }

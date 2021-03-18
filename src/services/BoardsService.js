@@ -67,13 +67,20 @@ class BoardsService {
 
   async makeList(listData) {
     const res = await api.post('api/lists', new List(listData))
-    AppState.activeBoard = new Board(res.data)
+    AppState.activeList = new List(res.data)
     this.getListByBoardId(AppState.activeBoard.id)
   }
 
   async makeTask(taskData) {
     const res = await api.post('api/tasks', new Task(taskData))
-    AppState.activeBoard = new Board(res.data)
+    AppState.activeTask = new Task(res.data)
+    this.getTaskByListId(AppState.activeList.id)
+  }
+
+  async makeComment(commentData) {
+    const res = await api.post('api/comments', new Comment(commentData))
+    AppState.activeComment = new Comment(res.data)
+    this.getCommentByTaskId(AppState.activeTask.id)
   }
 }
 

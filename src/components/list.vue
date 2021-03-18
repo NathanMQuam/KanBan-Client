@@ -2,6 +2,7 @@
   <div class="List card">
     {{ list.name }}
     <br />
+    <CreateTask :list="list" />
     <Task v-for="task in state.tasks" :key="task.id" :task="task" />
   </div>
 </template>
@@ -26,6 +27,7 @@ export default {
     })
     return {
       state
+
     }
   },
   components: {
