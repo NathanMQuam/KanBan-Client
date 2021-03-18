@@ -23,7 +23,12 @@ class BoardsService {
 
   async getTaskByListId(id) {
     const res = await api.get(`api/lists/${id}/tasks`)
-    AppState.tasks = res.data.map(t => new Task(t))
+    AppState.tasks[id] = res.data.map(t => new Task(t))
+  }
+
+  async getCommentByTaskId(id) {
+    const res = await api.get(`api/tasks/${id}/comments`)
+    AppState.comments[id] = res.data.map(c => new Comment(c))
   }
 }
 

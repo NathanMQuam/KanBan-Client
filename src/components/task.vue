@@ -1,19 +1,26 @@
 <template>
-  <div class="Task">
+  <div class="Task card">
     {{ task.name }}
   </div>
 </template>
 
 <script>
-import { reactive } from 'vue'
+import { AppState } from '../AppState'
+import { reactive, computed, onMounted } from 'vue'
+import { boardsService } from '../services/BoardsService'
+
 export default {
-  name: 'Task',
   props: {
     task: Object
   },
-  setup() {
+  setup(props) {
     const state = reactive({
+      user: computed(() => AppState.user),
+      comment: computed(() => AppState.comments[props.task.id])
 
+    })
+    onMounted(() => {
+      boardsService.getCommentByListId(props.task.id)
     })
     return {
       state

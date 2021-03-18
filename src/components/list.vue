@@ -2,37 +2,33 @@
   <div class="List card">
     {{ list.name }}
     <br />
-    <Task v-for="task in tasks" :key="task" :task="task" />
+    <Task v-for="task in state.tasks" :key="task" :task="task" />
   </div>
 </template>
 
 <script>
 import { AppState } from '../AppState'
 import { reactive, computed, onMounted } from 'vue'
-import Task from '../components/task'
 import { boardsService } from '../services/BoardsService'
-import { useRoute } from 'vue-router'
 
 export default {
   name: 'List',
   props: {
     list: Object
   },
-  setup() {
-    const route = useRoute()
+  setup(props) {
     const state = reactive({
-      user: computed(() => AppState.user)
-      // list: computed(() => AppState.lists)
+      user: computed(() => AppState.user),
+      tasks: computed(() => AppState.tasks[props.list.id])
     })
     onMounted(() => {
-      boardsService.getTaskByListId(route.params.id)
+      boardsService.getTaskByListId(props.list.id)
     })
     return {
       state
     }
   },
   components: {
-    Task
   }
 }
 </script>
