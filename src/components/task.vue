@@ -7,6 +7,9 @@
     <button class="btn btn-danger" @click="deleteTask">
       Delete Task
     </button>
+    <button class="btn btn-info" @click="openMoveTask">
+      Change List
+    </button>
   </div>
 </template>
 
@@ -33,6 +36,10 @@ export default {
       state,
       deleteTask() {
         boardsService.deleteTask(props.task.id)
+      },
+      openMoveTask() {
+        AppState.movingTask = props.task
+        boardsService.openMoveTask()
       }
     }
   },

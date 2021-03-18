@@ -7,6 +7,9 @@
     <button class="btn btn-danger" @click="deleteList">
       Delete List
     </button>
+    <button class="btn btn-warning" v-if="state.moveHere" @click="moveTask">
+      Move Here
+    </button>
   </div>
 </template>
 
@@ -22,16 +25,22 @@ export default {
   },
   setup(props) {
     const state = reactive({
+      moveHere: computed(() => AppState.moveHere),
       user: computed(() => AppState.user),
-      tasks: computed(() => AppState.tasks[props.list.id])
+      tasks: computed(() => AppState.tasks[props.list.id]),
+      lists: computed(() => AppState.lists)
     })
     onMounted(() => {
       boardsService.getTaskByListId(props.list.id)
     })
     return {
+
       state,
       deleteList() {
         boardsService.deleteList(props.list.id)
+      },
+      moveTask() {
+        boardsService.moveTask(props.list.id, AppState.movingTask.id)
       }
 
     }

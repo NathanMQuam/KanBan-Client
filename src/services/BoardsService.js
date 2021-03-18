@@ -103,6 +103,15 @@ class BoardsService {
     // this.getComments()
     location.reload()
   }
+
+  openMoveTask() {
+    AppState.moveHere = !AppState.moveHere
+  }
+
+  async moveTask(id, taskId) {
+    await api.put(`api/tasks/${taskId}`, { listId: id })
+    location.reload()
+  }
 }
 
 export const boardsService = new BoardsService()
