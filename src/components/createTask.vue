@@ -2,7 +2,7 @@
   <div class="createTask">
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createTaskModal" @click="setActiveList">
-      New Task
+      + Task
     </button>
 
     <!-- Modal -->
@@ -11,7 +11,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="createTaskModalLabel">
-              New Task
+              + Task
             </h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
