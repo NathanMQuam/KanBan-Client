@@ -3,7 +3,8 @@
     <small>{{ state.user.name }}</small>
     <p>{{ comment.name }}</p>
     <button class="btn btn-danger" @click="deleteComment">
-      Delete Comment
+      <i class="fa fa-trash" aria-hidden="true"></i>
+      Comment
     </button>
   </div>
 </template>

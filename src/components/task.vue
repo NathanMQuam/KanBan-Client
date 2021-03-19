@@ -5,7 +5,8 @@
     <CreateComment :task="task" />
     <Comment v-for="comment in state.comments" :key="comment.id" :comment="comment" />
     <button class="btn btn-danger" @click="deleteTask">
-      Delete Task
+      <i class="fa fa-trash" aria-hidden="true"></i>
+      Task
     </button>
     <button class="btn btn-info" @click="openMoveTask">
       Change List

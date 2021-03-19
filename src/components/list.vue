@@ -5,7 +5,8 @@
     <CreateTask :list="list" />
     <Task v-for="task in state.tasks" :key="task.id" :task="task" />
     <button class="btn btn-danger" @click="deleteList">
-      Delete List
+      <i class="fa fa-trash" aria-hidden="true"></i>
+      List
     </button>
     <button class="btn btn-warning" v-if="state.moveHere" @click="moveTask">
       Move Here

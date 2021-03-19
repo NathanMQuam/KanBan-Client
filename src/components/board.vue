@@ -12,7 +12,7 @@
         </div>
       </router-link>
       <button class="btn btn-danger" @click="deleteBoard">
-        Delete Board
+        <i class="fa fa-trash" aria-hidden="true"></i>
       </button>
     </div>
   </div>
