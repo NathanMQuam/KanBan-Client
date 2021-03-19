@@ -1,7 +1,7 @@
 <template>
   <div class="Comment card">
-    {{ comment.name }}
-    <br />
+    <small>{{ state.user.name }}</small>
+    <p>{{ comment.name }}</p>
     <button class="btn btn-danger" @click="deleteComment">
       Delete Comment
     </button>
